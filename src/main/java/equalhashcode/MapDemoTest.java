@@ -21,17 +21,20 @@ public class MapDemoTest {
         }
          Set<Map.Entry<Integer,Ticket>>entrySet=ticketMap.entrySet();
         Iterator<Map.Entry<Integer,Ticket>>iterator= entrySet.iterator();
+
         for (;iterator.hasNext();){
             Map.Entry<Integer,Ticket>entry=iterator.next();
-            System.out.println("key"+entry.getKey()+"value "+ entry.getValue());
+            System.out.println("key  "+entry.getKey()+"value "+ entry.getValue());
         }
        ticketMap.forEach((k,v)->{
            System.out.println("key from foreach "+ k + " value "+v);
        });
+
         Ticket findTicket = new Ticket();
         findTicket.pnr="789311815150000";
         findTicket.name="Chandu";
         System.out.println("  getting from  list");
+
         long listStartTime =System.currentTimeMillis();
         Iterator<Ticket>ticketIterator = ticketList.iterator();
 
@@ -46,9 +49,11 @@ public class MapDemoTest {
         long listEndTime = System.currentTimeMillis();
         System.out.println("time taken "+(listEndTime-listStartTime));
         System.out.println(" getting Ticket from map ");
+
         long mapListStartTime = System.currentTimeMillis();
         Ticket mapTicket = ticketMap.get(findTicket.hashCode());
         System.out.println(" find the ticket from map " +  mapTicket.pnr);
+
         long mapListEndTime = System.currentTimeMillis();
         System.out.println(" time taken from map  "  +   (    mapListEndTime-mapListStartTime));
 
